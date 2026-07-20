@@ -784,11 +784,11 @@ sind erledigt.
 
 Offen sind noch, in empfohlener Reihenfolge:
 
-1. **Technisches Architekturkonzept** (Folgedokument): Datenmodell,
-   Tech-Stack-Entscheid, Repo-Struktur für die neue Zertifizierungs-App
-   „EcoGastroCert", Schnittstellen zu Energietool und EnergyCheck (APIs,
-   Auth, Datenaustausch). Das ist der nächste logische Schritt, um von
-   diesem Fachkonzept zu einer bau- und schätzbaren Umsetzung zu kommen.
+1. **Technisches Architekturkonzept — erledigt**: siehe
+   `docs/architektur_ecogastrocert.md` (nur im privaten `energy_tool`-Repo,
+   nicht im öffentlichen `Public_Docs`, da Serverdetails/SSH-Pfade enthalten
+   sind). Tech-Stack-Entscheid, Datenmodell, Schnittstellen zu Energietool/
+   EnergyCheck, Deployment.
 2. **Kleine, bereits spezifizierte Erweiterungen vorziehen**: die drei
    bestätigten EnergyCheck-Ergänzungen (Beleuchtungs-Kategorie,
    Pluskühl-Reinigungsfrage, Lüftungs-Schaltzeiten nach Zone) und die
