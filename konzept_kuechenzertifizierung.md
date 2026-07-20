@@ -775,10 +775,32 @@ Zertifizierungsprozesses kommen.
 
 ## 10. Nächste Schritte
 
-- Rückmeldung zu den offenen Fragen in Abschnitt 8, insbesondere zur
-  Auditoren-Schulung/-Rolle.
-- Verifikation der 🟡-Annahmen gegen den tatsächlichen EnergyCheck-
-  Fragenkatalog (`frage`-Tabelle) und den Energietool-Gerätekatalog.
-- Bei Einigkeit über den Grobprozess: technisches Architekturkonzept
-  (Datenmodell, Repo-Struktur, Schnittstellen Energietool ↔ Zertifizierungs-
-  App ↔ EnergyCheck) als Folgedokument.
+**Stand:** Das Fachkonzept ist inhaltlich abgeschlossen — Prozess, Rollen,
+alle 48 Kriterien Kriterium-für-Kriterium geklärt (Abschnitt 4a), das
+quantitative Bewertungsmodell mit Schwellen und Stufen (Abschnitt 4b), sowie
+Marketing/Landingpage/Vergabe-Kit (Abschnitt 5a). Die ursprünglich hier
+notierten Punkte (Rückmeldung zu Abschnitt 8, Verifikation der 🟡-Annahmen)
+sind erledigt.
+
+Offen sind noch, in empfohlener Reihenfolge:
+
+1. **Technisches Architekturkonzept** (Folgedokument): Datenmodell,
+   Tech-Stack-Entscheid, Repo-Struktur für die neue Zertifizierungs-App
+   „EcoGastroCert", Schnittstellen zu Energietool und EnergyCheck (APIs,
+   Auth, Datenaustausch). Das ist der nächste logische Schritt, um von
+   diesem Fachkonzept zu einer bau- und schätzbaren Umsetzung zu kommen.
+2. **Kleine, bereits spezifizierte Erweiterungen vorziehen**: die drei
+   bestätigten EnergyCheck-Ergänzungen (Beleuchtungs-Kategorie,
+   Pluskühl-Reinigungsfrage, Lüftungs-Schaltzeiten nach Zone) und die
+   Energietool-Erweiterungen für Kriterium 1 (Tracking EcoGastro-Anteil je
+   Gerätekategorie) sind unabhängig von der neuen App umsetzbar und könnten
+   parallel schon begonnen werden.
+3. **Skalierungsgrenzwerte/Rundungsregeln** für das Punktemodell aus
+   Abschnitt 4b technisch spezifizieren (z. B. exakte Rundung bei der
+   linearen Skalierung von Kriterium 1).
+4. **Externe Validierung**: das Konzept mit EnergieSchweiz und dem Verband
+   Schweizer Gastroplaner als benannte Partner gegenspiegeln, bevor die
+   Umsetzung beginnt — insbesondere die Kriterien-Gewichtung (Abschnitt 4b)
+   und das Vergabe-Kit (rechtliche Formulierung).
+5. **Domain/Branding EcoGastroCert** registrieren und Corporate Design
+   (Logo, Farben) festlegen, bevor die Landingpage gebaut wird.
