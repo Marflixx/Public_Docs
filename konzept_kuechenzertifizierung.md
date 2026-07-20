@@ -110,11 +110,16 @@ Faktenblatt/Grundlagenmodul, Anhang «Bedingungen»):
 | **Gerätehersteller** | extern | Liefert Geräteschulung (Kriterium 23), liefert Messdaten für neue Geräte im Energietool-Katalog (bestehender Prozess, unverändert) |
 
 Da externe Auditoren vorgesehen sind, braucht die neue App eine **Auditoren-
-Verwaltung**: Profil, Qualifikationsnachweis (z. B. Teilnahme an einer
-Auditoren-Schulung durch EcoGastro), Zuteilung zu Fällen (z. B. nach Region),
-eingeschränkte Sicht (ein Auditor sieht nur die ihm zugewiesenen Fälle, nicht
-alle Betriebe), und eine Nachvollziehbarkeit, wer welche Feststellung gemacht
-hat (Vier-Augen-Prinzip: Auditor dokumentiert, EcoGastro-Admin gibt frei).
+Verwaltung**: Profil, ein einfaches Qualifikations-Flag (die eigentliche
+Schulung/Qualifizierung läuft **ausserhalb der App** als interner
+EcoGastro-Prozess — die App bildet nur das Ergebnis ab), Zuteilung zu Fällen
+(z. B. nach Region), eingeschränkte Sicht (ein Auditor sieht nur die ihm
+zugewiesenen Fälle, nicht alle Betriebe), und eine Nachvollziehbarkeit, wer
+welche Feststellung gemacht hat (Vier-Augen-Prinzip: Auditor dokumentiert,
+EcoGastro-Admin gibt frei). **Strikte Rollentrennung:** ein zertifizierter
+Gastroplaner kann nicht gleichzeitig als Auditor registriert sein — die App
+verhindert das aktiv (z. B. bei Registrierung geblockt oder Warnung bei
+Doppelzuweisung).
 
 ---
 
@@ -388,9 +393,21 @@ Mindestschwelle und drei Leistungsstufen, entschieden mit Martin wie folgt.
 
 - **Binär** (die meisten Kriterien): volle Punktzahl bei „erfüllt", 0 bei
   „nicht erfüllt".
-- **Skaliert/Kennzahl** (Kriterien 1, 9, 10): linear zwischen einem
-  Mindest- und einem Zielwert skaliert statt hart Ja/Nein — die konkreten
-  Grenzwerte sind in Abschnitt 8 als offener Punkt vermerkt.
+- **Kriterium 1 (Skala, geklärt)**: volle Punktzahl ab **90 % derjenigen
+  Gerätekategorien im Projekt, für die überhaupt ein EcoGastro-zertifiziertes
+  Gerät existiert** (aktuell: Kombidämpfer, Multifunktionsgeräte,
+  Spülmaschinen, Fritteusen, Warmhaltewagen/Bain-Marie, Pizzaöfen, Griddle —
+  siehe Grundlagenmodul). Kategorien ohne zertifiziertes Marktangebot zählen
+  **nicht** in den Nenner — das Kriterium bestraft also nicht, wenn es für
+  eine benötigte Gerätekategorie schlicht kein EcoGastro-Gerät gibt.
+  Unterhalb 90 % linear abgestuft (z. B. 45 % erfüllte Kategorien → 50 % der
+  Punkte).
+- **Kriterien 9/10 (Auditor-Ermessen mit Abstufung, geklärt)**: kein starrer
+  Systemwert. Der Auditor vergibt **0/1/2 Punkte** je nach Einschätzung
+  (nicht angemessen / teilweise angemessen / angemessen) und muss dazu eine
+  **kurze Begründung** im Audit-Bericht erfassen — Pflichtfeld, damit die
+  Bewertung nachvollziehbar bleibt und nicht als reine Zahl ohne Kontext im
+  System landet.
 - **Weggelassene Kriterien** (21, 22, 27, 29 in Teilzertifikat 1; 32, 35, 37
   in Teilzertifikat 2): zählen **nicht** in Zähler oder Nenner des Scores.
   Sie bleiben aber als **Veto-Kriterien** beim Auditor — eine gravierende
@@ -492,13 +509,22 @@ nur die fachlichen Bausteine.
   zugewiesener Auditor, Vor-Ort-Checkliste, Fotos, Feststellungen,
   Empfehlung, Freigabe durch EcoGastro-Admin.
 - **Zertifikat**: ausgestelltes Dokument (Basis- oder Vollzertifikat) mit
-  Gültigkeitsdauer, PDF, öffentlich verifizierbar (z. B. QR-Code/Link analog
-  zum bestehenden EnergyCheck-Report-Token-Muster).
+  Gültigkeitsdauer, Leistungsstufe je Teilzertifikat (Basis/Silber/Gold,
+  siehe Abschnitt 4b), PDF, öffentlich verifizierbar (z. B. QR-Code/Link
+  analog zum bestehenden EnergyCheck-Report-Token-Muster).
 - **Gastroplaner-Register**: zertifizierte Planer, Lehrgangs-/Modulstatus,
   Erfahrungsmodul-Nachweise (siehe Abschnitt 6), Verknüpfung zum
   Energietool-Login.
-- **Auditoren-Register**: interne und externe Auditoren, Qualifikations-
-  nachweis, Zuteilungsregion, zugewiesene Fälle.
+- **Auditoren-Register**: interne und externe Auditoren, Qualifikations-Flag,
+  Zuteilungsregion, zugewiesene Fälle — mit erzwungener Trennung von der
+  Planer-Rolle (siehe Abschnitt 3).
+- **Öffentliches Verzeichnis**: durchsuchbare, öffentliche Liste zertifizierter
+  Betriebe mit Stufe (Basis/Silber/Gold je Teilzertifikat) und
+  Gültigkeitsdatum — Marketingwert für EcoGastro und die Betriebe, separat
+  vom internen Zertifizierungsfall.
+- **Zahlung**: Audit-Gebühr pro Zertifizierungsfall, analog zum bestehenden
+  Stripe-Kauf-/Rabattcode-System in EnergyCheck (Details zu Höhe/Struktur
+  folgen mit der technischen Architektur).
 
 **Automatisierte Datenflüsse (Ziel):**
 
@@ -516,6 +542,12 @@ nur die fachlichen Bausteine.
 - Zwei Jahre nach der letzten Zertifizierung/Re-Zertifizierung löst das System
   automatisch eine Erinnerung an Betrieb und Admin aus (analog EcoGastro.Train-
   Reminder, Kriterium 34).
+- Das System vergleicht laufend die Betriebs-/Gerätedaten aus Energietool und
+  EnergyCheck mit dem Stand der letzten (Re-)Zertifizierung; bei wesentlicher
+  Abweichung (Gerätebestand, Kapazität, Öffnungstage — Toleranz noch zu
+  definieren) wird automatisch eine Warnung an den EcoGastro-Admin ausgelöst,
+  der über (Teil-)Neuzertifizierung statt einfacher Re-Zertifizierung
+  entscheidet.
 
 **Schlankes Audit-Vorgehen (Vorschlag):**
 
@@ -583,37 +615,49 @@ Vorgeschlagene Bausteine (Ausbau der bestehenden Planer-Sicht):
 
 ---
 
-## 8. Offene Fragen
+## 8. Offene Fragen (grösstenteils im Review geklärt)
 
-- **Auditoren-Schulung**: Wie werden externe Auditoren ausgebildet und
-  qualifiziert — eigenes Modul im Lehrgang, oder ein separates, kürzeres
-  Format? Können zertifizierte Gastroplaner selbst als Auditoren wirken
-  (Interessenkonflikt bei eigenen Projekten wäre auszuschliessen)?
-- **Skalierungsgrenzwerte für Kriterien 1, 9, 10 noch offen**: das
-  Punktemodell in Abschnitt 4b setzt eine lineare Skalierung zwischen einem
-  Mindest- und Zielwert voraus, aber die konkreten Prozentwerte (z. B. ab
-  welchem Anteil EcoGastro-Geräte bei Kriterium 1 die volle Punktzahl
-  erreicht wird) sind noch fachlich festzulegen, vor dem MVP-Start.
-- **Verbleibende kleine Erweiterungen** (siehe Abschnitt 4a im Detail):
-  EnergyCheck-Kategorie „Beleuchtung" (Kriterium 40), fehlende
-  Reinigungsfrage bei `pluskuehl` (Kriterium 44), Aufteilung der
-  Lüftungs-Schaltzeiten-Frage nach Zone (Kriterien 45–47). Alle drei sind
-  klein und sollten früh im MVP mitgenommen werden, weil sie günstig
-  automatisierbar sind.
+Die meisten der ursprünglich offenen Punkte wurden im Kriterien- und
+Konzept-Review mit Martin geklärt; nur Kriterium 24 (Kaffeegeräte) bleibt
+bewusst offen zurückgestellt. Der Abschnitt bleibt als Entscheidungs-Log
+stehen.
+
+- **Auditoren-Schulung — geklärt**: die Qualifizierung externer Auditoren ist
+  ein rein interner Prozess bei EcoGastro/Eartheffect, **nicht Teil des
+  Tools**. Die neue App führt nur ein Auditoren-Register mit einem
+  Qualifikations-Flag (qualifiziert: ja/nein, manuell durch den Admin
+  gesetzt) — kein Schulungs-/Prüfungsmodul in der App selbst.
+- **Planer als Auditor — geklärt**: **strikte Trennung**. Ein zertifizierter
+  Gastroplaner kann nicht gleichzeitig als Auditor auftreten, auch nicht bei
+  fremden Projekten — beide Rollen sind im Register gegenseitig
+  ausschliessend.
+- **Verbleibende kleine Erweiterungen — geklärt, bleiben früh im MVP**
+  (siehe Abschnitt 4a im Detail): EnergyCheck-Kategorie „Beleuchtung"
+  (Kriterium 40), fehlende Reinigungsfrage bei `pluskuehl` (Kriterium 44),
+  Aufteilung der Lüftungs-Schaltzeiten-Frage nach Zone (Kriterien 45–47).
+  Bestätigt: alle drei werden früh priorisiert, nicht auf „nach dem MVP"
+  verschoben.
 - **Kaffeegeräte im Energietool** (Teilzertifikat 1, Kriterium 24): bewusst
   zurückgestellt (siehe 4a) — bleibt aber im Hinterkopf, falls Kaffee künftig
   doch EcoGastro-Förderschwerpunkt wird.
-- **Öffentliche Sichtbarkeit des Zertifikats**: Soll es — wie bei anderen
-  Labels üblich — eine öffentliche Liste/Suche zertifizierter Betriebe geben
-  (Marketingwert für EcoGastro und die Betriebe)?
-- **Bezahlmodell**: EnergyCheck kennt bereits ein Kauf-/Rabattcode-System für
-  Betriebe ausserhalb des Gratis-Kontingents (Stripe). Soll die
-  Zertifizierung ein ähnliches Gebührenmodell erhalten (z. B. Audit-Gebühr)?
-- **Zusammenspiel bei „grossen Veränderungen"**: Wie wird technisch/
-  organisatorisch erkannt, dass ein Betrieb sich so verändert hat, dass keine
-  reine Re-Zertifizierung mehr möglich ist (Kriterium aus den
-  Rezertifizierungs-Bedingungen)? Braucht vermutlich eine manuelle Meldung
-  durch den Betrieb plus Ermessensentscheid des Admins.
+- **Öffentliche Sichtbarkeit des Zertifikats — geklärt**: Es soll ein
+  **öffentliches Verzeichnis/Suche** zertifizierter Betriebe geben (nicht nur
+  ein Verifizierungslink pro Einzelzertifikat), inkl. der neuen Basis-/
+  Silber-/Gold-Stufe aus Abschnitt 4b und Gültigkeitsdatum. Das wird als
+  neues Kernobjekt „öffentliches Verzeichnis" in Abschnitt 5 ergänzt.
+- **Bezahlmodell — geklärt**: Die Zertifizierung erhält eine **Audit-Gebühr**,
+  analog zum bestehenden Stripe-Kauf-/Rabattcode-System in EnergyCheck.
+  Details (Höhe, ob pro Teilzertifikat oder pauschal, Rabattcode-Logik
+  analog EnergyCheck) sind ein Folgeschritt, sobald die App-Architektur
+  ansteht.
+- **„Grosse Veränderungen" — geklärt**: die Erkennung erfolgt **automatisch**
+  über einen Abgleich der Betriebs-/Gerätedaten zwischen Energietool und
+  EnergyCheck seit der letzten (Re-)Zertifizierung (z. B. wesentliche
+  Änderungen im Gerätebestand, Kapazität, Öffnungstage). Bei Abweichung über
+  einer noch zu definierenden Toleranz wird automatisch eine Warnung an den
+  EcoGastro-Admin ausgelöst, der dann entscheidet, ob eine (Teil-)
+  Neuzertifizierung statt einer einfachen Re-Zertifizierung nötig ist —
+  keine reine Selbstmeldepflicht des Betriebs mehr.
 
 ---
 
@@ -627,10 +671,18 @@ Vorgeschlagene Bausteine (Ausbau der bestehenden Planer-Sicht):
 3. Audit-Modul (Checkliste, Foto, Freigabe) für die 🔴-Kriterien.
 4. Zertifikats-Ausstellung (PDF + Verifizierungslink) und Fristen-/
    Reminder-Engine (Re-Zertifizierung, Erfahrungsmodul, EcoGastro.Train).
-5. Gezielte Erweiterungen der Quell-Apps für die wichtigsten 🟡-Kriterien
-   (nach Priorität aus Abschnitt 8).
-6. Auditoren-Verwaltung für externe Auditoren.
+5. Die drei kleinen, bestätigt priorisierten EnergyCheck-Erweiterungen
+   (Beleuchtungs-Kategorie, Pluskühl-Reinigungsfrage, Lüftungs-Schaltzeiten
+   nach Zone) sowie die übrigen 🟡-Kriterien aus Abschnitt 4a.
+6. Auditoren-Verwaltung für externe Auditoren (Register, Rollentrennung zu
+   Gastroplanern).
 7. Ablage-/Info-/Austauschplattform im Energietool.
+8. Öffentliches Verzeichnis zertifizierter Betriebe und Zahlungsmodul
+   (Audit-Gebühr) — beides eher spätere Ausbaustufen, sobald der
+   Kern-Zertifizierungsprozess läuft.
+9. Automatischer Abgleich „grosse Veränderungen" (Change-Detection zwischen
+   Energietool/EnergyCheck und letzter Zertifizierung) — sinnvoll erst,
+   sobald mehrere Re-Zertifizierungszyklen echte Vergleichsdaten liefern.
 
 ---
 
