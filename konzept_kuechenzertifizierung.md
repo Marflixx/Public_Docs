@@ -518,10 +518,13 @@ nur die fachlichen Bausteine.
 - **Auditoren-Register**: interne und externe Auditoren, Qualifikations-Flag,
   Zuteilungsregion, zugewiesene Fälle — mit erzwungener Trennung von der
   Planer-Rolle (siehe Abschnitt 3).
-- **Öffentliches Verzeichnis**: durchsuchbare, öffentliche Liste zertifizierter
-  Betriebe mit Stufe (Basis/Silber/Gold je Teilzertifikat) und
+- **Öffentliches Verzeichnis (Betriebe)**: durchsuchbare, öffentliche Liste
+  zertifizierter Betriebe mit Stufe (Basis/Silber/Gold je Teilzertifikat) und
   Gültigkeitsdatum — Marketingwert für EcoGastro und die Betriebe, separat
   vom internen Zertifizierungsfall.
+- **Öffentliches Verzeichnis (Planer)**: analog, aber bewusst schlank — nur
+  Firma, Name und Jahr der Zertifizierung, keine Projekt-/Kundenreferenzen
+  ohne separates Opt-in (siehe Abschnitt 5a).
 - **Zahlung**: Audit-Gebühr pro Zertifizierungsfall, analog zum bestehenden
   Stripe-Kauf-/Rabattcode-System in EnergyCheck (Details zu Höhe/Struktur
   folgen mit der technischen Architektur).
@@ -561,6 +564,79 @@ nur die fachlichen Bausteine.
    Auflagen), EcoGastro-Admin prüft und gibt frei.
 4. **Zertifikat**: bei Freigabe automatische Zertifikatserstellung (PDF +
    öffentlicher Verifizierungslink), Gültigkeitsfrist wird gesetzt.
+
+---
+
+## 5a. Marketing & öffentlicher Auftritt (EcoGastroCert)
+
+Die neue Zertifizierungs-App ist nicht nur internes Verwaltungswerkzeug für
+Eartheffect, sondern soll aktiv Bauherrschaften — insbesondere die öffentliche
+Hand — dafür gewinnen, ihre Gastroküchen zertifizieren zu lassen. Das
+verändert den Charakter der App: sie bekommt einen eigenständigen,
+öffentlichkeitswirksamen Frontend-Teil unter eigener Marke, **EcoGastroCert**,
+mit eigener Domain (z. B. `ecogastrocert.ch`), getrennt von den technischen
+Marken Energietool/EnergyCheck — analog zu Minergie als etabliertem Vorbild
+für ein glaubwürdiges, unabhängiges Gebäude-/Prozesslabel.
+
+### Zielgruppen und Nutzenversprechen
+
+| Zielgruppe | Nutzenversprechen |
+|---|---|
+| Private Bauherrschaften (Hotels, Gastro-Ketten, Investoren) | tiefere Betriebskosten, Zukunftssicherheit bei steigenden Energiepreisen, Imagegewinn bei Gästen und ESG-Reporting institutioneller Investoren |
+| Öffentliche Bauherrschaften (Gemeinden, Kantone, Spitäler, Schulen, Alters-/Pflegeheime) | Nachweis gegenüber Politik/Bevölkerung für eigene Netto-Null-/Energiestrategien, geringeres Planungsrisiko durch klare Systemgrenzen |
+| Vergabestellen/Beschaffung | fertiges, rechtlich sauber eingeordnetes Kriterium (siehe Vergabe-Kit unten), das nicht selbst entwickelt werden muss |
+| Architekten/Fachplaner (HLKKSE) | Multiplikatoren, Profilierung mit Nachhaltigkeitskompetenz |
+| Gastronomiebetriebe (Endnutzer) | Reputation bei Gästen, analog Bio-Label/Green Globe |
+
+**Kernbotschaft:** „Die einzige Zertifizierung, die Planung *und* Betrieb
+prüft" — Abgrenzung zu reinen Geräte-Labels. Getragen von EnergieSchweiz und
+dem Verband Schweizer Gastroplaner als Glaubwürdigkeits-Anker.
+
+### Rechtlicher Hebel bei öffentlichen Ausschreibungen
+
+Das revidierte Bundesgesetz über das öffentliche Beschaffungswesen (BöB)
+verankert Nachhaltigkeit als Grundsatz (Art. 21) und ruft Vergabestellen dazu
+auf, vermehrt auf Qualität/Nachhaltigkeit ausgerichtete **Zuschlagskriterien**
+zu verwenden, statt nur nach dem günstigsten Preis zu vergeben. Wichtig:
+Nachhaltigkeitsanforderungen sollten als **Zuschlagskriterium** (Bonuspunkte)
+formuliert werden, nicht als technische Spezifikation mit Ausschlusswirkung
+— sonst droht Anfechtung wegen Wettbewerbsbeschränkung. **Minergie-ECO** ist
+der etablierte Präzedenzfall: Kantone/Gemeinden referenzieren das Label
+direkt in ihren Vergabeunterlagen. Dieses Muster soll EcoGastroCert
+übernehmen — siehe das separate **Vergabe-Kit** (Musterausschreibungstext +
+Argumentarium für Beschaffungsstellen, eigenes Dokument).
+
+### Landingpage-Struktur (öffentliche Routen, fachlich)
+
+- **`/`** — Hero mit den drei Zielgruppen-Kacheln (private/öffentliche
+  Bauherrschaft, Gastronomiebetriebe), Ablaufprozess-Grafik (Planung → Bau →
+  Audit → Zertifikat → Betrieb → Re-Zertifizierung), Trust-Kennzahlen
+  („X zertifizierte Küchen, Y zertifizierte Planer, Z kWh eingespart"),
+  Corporate-Design-Bezug zu EnergieSchweiz/Verband Schweizer Gastroplaner.
+- **`/kuechen`** — öffentliches, durchsuchbares Verzeichnis zertifizierter
+  Betriebe mit Stufe (Basis/Silber/Gold) und Gültigkeitsdatum (siehe
+  Abschnitt 5).
+- **`/planer`** (neu) — öffentliches Verzeichnis zertifizierter Gastroplaner.
+  Umfang bewusst schlank gehalten aus Diskretionsgründen: **Firma, Name,
+  Jahr der Zertifizierung** — keine Projekt-/Kundenreferenzen ohne separates
+  Opt-in.
+- **`/oeffentliche-hand`** (neu) — dedizierter Bereich für Vergabestellen:
+  Download des Vergabe-Kits, Kurzargumentarium, Kontaktformular für Beratung.
+- **`/zertifikat/{id}`** — öffentliche, teilbare Verifizierungsseite pro
+  Zertifikat mit Badge-Embed-Code für die Website des Betriebs (analog zum
+  EnergyCheck-Report-Token-Muster).
+- **News/Case-Studies-Bereich** — Kurzporträts zertifizierter Küchen
+  (Vorher/Nachher, kWh/Jahr gespart, O-Ton Betreiber), sobald erste Fälle
+  vorliegen.
+
+Admin-seitig braucht es ein einfaches CMS für Landingpage-Texte und Case
+Studies, damit Eartheffect Inhalte ohne Entwicklerhilfe pflegen kann —
+analog zum bestehenden Mailtemplate-/Settings-Muster in EnergyCheck.
+
+**Priorisierung:** Landingpage und öffentliche Verzeichnisse werden **in
+Abschnitt 9 nach vorne gezogen** — Marketing/Kundenakquise ist strategisch
+zentral und soll nicht erst nach Abschluss des internen
+Zertifizierungsprozesses kommen.
 
 ---
 
@@ -663,6 +739,12 @@ stehen.
 
 ## 9. Vorschlag für die Priorisierung (MVP zuerst)
 
+**Aktualisiert:** Marketing/Kundenakquise (Landingpage, öffentliche
+Verzeichnisse) wurde bewusst nach vorne gezogen — das ist der stärkste Hebel,
+um Bauherrschaften und insbesondere die öffentliche Hand für
+EcoGastroCert zu gewinnen, und soll nicht erst nach Abschluss des internen
+Zertifizierungsprozesses kommen.
+
 1. Gastroplaner-Register + Verknüpfung Energietool-Projekt → Fall (Basis für
    Kriterium 25 und generell für die Fallanlage).
 2. Kriterien-Checkliste mit den bereits 🟢 verfügbaren automatischen Werten
@@ -671,18 +753,23 @@ stehen.
 3. Audit-Modul (Checkliste, Foto, Freigabe) für die 🔴-Kriterien.
 4. Zertifikats-Ausstellung (PDF + Verifizierungslink) und Fristen-/
    Reminder-Engine (Re-Zertifizierung, Erfahrungsmodul, EcoGastro.Train).
-5. Die drei kleinen, bestätigt priorisierten EnergyCheck-Erweiterungen
+5. **Landingpage + öffentliche Verzeichnisse (Betriebe und Planer, Abschnitt
+   5a)** — vorgezogen, da zentraler Marketing-/Akquise-Hebel, insbesondere
+   für die öffentliche Hand.
+6. **Vergabe-Kit für Beschaffungsstellen** (Musterausschreibungstext +
+   Argumentarium, eigenes Dokument) — direkt einsatzbereit sobald die
+   Landingpage steht.
+7. Die drei kleinen, bestätigt priorisierten EnergyCheck-Erweiterungen
    (Beleuchtungs-Kategorie, Pluskühl-Reinigungsfrage, Lüftungs-Schaltzeiten
    nach Zone) sowie die übrigen 🟡-Kriterien aus Abschnitt 4a.
-6. Auditoren-Verwaltung für externe Auditoren (Register, Rollentrennung zu
+8. Auditoren-Verwaltung für externe Auditoren (Register, Rollentrennung zu
    Gastroplanern).
-7. Ablage-/Info-/Austauschplattform im Energietool.
-8. Öffentliches Verzeichnis zertifizierter Betriebe und Zahlungsmodul
-   (Audit-Gebühr) — beides eher spätere Ausbaustufen, sobald der
-   Kern-Zertifizierungsprozess läuft.
-9. Automatischer Abgleich „grosse Veränderungen" (Change-Detection zwischen
-   Energietool/EnergyCheck und letzter Zertifizierung) — sinnvoll erst,
-   sobald mehrere Re-Zertifizierungszyklen echte Vergleichsdaten liefern.
+9. Ablage-/Info-/Austauschplattform im Energietool.
+10. Zahlungsmodul (Audit-Gebühr) — eher spätere Ausbaustufe, sobald der
+    Kern-Zertifizierungsprozess läuft.
+11. Automatischer Abgleich „grosse Veränderungen" (Change-Detection zwischen
+    Energietool/EnergyCheck und letzter Zertifizierung) — sinnvoll erst,
+    sobald mehrere Re-Zertifizierungszyklen echte Vergleichsdaten liefern.
 
 ---
 
