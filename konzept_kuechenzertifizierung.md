@@ -574,7 +574,7 @@ Eartheffect, sondern soll aktiv Bauherrschaften — insbesondere die öffentlich
 Hand — dafür gewinnen, ihre Gastroküchen zertifizieren zu lassen. Das
 verändert den Charakter der App: sie bekommt einen eigenständigen,
 öffentlichkeitswirksamen Frontend-Teil unter eigener Marke, **EcoGastroCert**,
-mit eigener Domain (z. B. `ecogastrocert.ch`), getrennt von den technischen
+mit eigener Domain (`ecogastrocert.org`), getrennt von den technischen
 Marken Energietool/EnergyCheck — analog zu Minergie als etabliertem Vorbild
 für ein glaubwürdiges, unabhängiges Gebäude-/Prozesslabel.
 
