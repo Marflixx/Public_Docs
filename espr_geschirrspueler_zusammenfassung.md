@@ -22,9 +22,7 @@ vom 23. Juni 2026). Zeitplan laut EU-Kommission / VITO-Vorstudie:
 Es handelt sich also um ein laufendes, nicht abgeschlossenes
 Gesetzgebungsverfahren — Werte und Fristen im Entwurf können sich noch ändern.
 
-Quellen: [Have your say – Ecodesign requirements for commercial dishwashers](https://ec.europa.eu/info/law/better-regulation/have-your-say/initiatives/16552-Ecodesign-requirements-for-commercial-dishwashers_en),
-[ESPR Preparatory Study – Professional Dishwashers](https://ecodesign-commdishwashers.eu/en),
-[Dokumente der Vorstudie](https://ecodesign-commdishwashers.eu/en/documents)
+Quelle: [ESPR Preparatory Study – Professional Dishwashers](https://ecodesign-commdishwashers.eu/en)
 
 ## Geprüfte Dokumente (4 total)
 
