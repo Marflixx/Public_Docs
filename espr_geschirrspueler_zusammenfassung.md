@@ -111,3 +111,40 @@ zentrale Referenzwert REC von der EU noch nicht veröffentlicht wurde
 final feststeht, ist das Skript direkt einsatzbereit — nur `REC_VALUES` in
 `eu_energielabel.py` muss dann aktualisiert werden. Bis dahin ist nur die
 Ecodesign-Pass/Fail-Prüfung (Mindestanforderung) belastbar auswertbar.
+
+## Anhang: Auswertung der EGS-Gerätedatenbank (Stand 21.07.2026)
+
+Read-only-Abfrage der Produktions-DB (`device` ⨝ `device_listing` ⨝
+`measure_category`, Feld `energieverbrauch_pro_teller` = SPEC) gegen die
+Ecodesign-Mindestanforderung (SPEC < 0,023 kWh/Teller bei Haube, < 0,021
+kWh/Teller bei Untertisch).
+
+**95 eindeutige Geschirrspüler-Modelle** mit hinterlegtem SPEC-Wert
+ausgewertet:
+
+- **87 Modelle erfüllen** die Ecodesign-Mindestanforderung (62 Haube-, 25
+  Untertisch-Modelle)
+- **8 Modelle erfüllen sie nicht** (siehe Tabelle unten)
+
+### Modelle, die die Mindestanforderung NICHT erfüllen
+
+| ID | Hersteller | Modell | Kategorie | Typ | SPEC (kWh/Teller) |
+|---|---|---|---|---|---|
+| 416 | Gehrig Group | GTW 3700 | Haubenspülmaschine 1 Korb, 500x500mm | Haube | 0,023 |
+| 452 | Meiko | M-iClean HL | Haubenspülmaschine 1 Korb, 500x650mm | Haube | 0,027 |
+| 454 | Meiko | M-iClean HL AirConcept | Haubenspülmaschine 1 Korb, 500x650mm | Haube | 0,026 |
+| 453 | Meiko | M-iClean HL WWHR | Haubenspülmaschine 1 Korb, 500x650mm | Haube | 0,026 |
+| 455 | Meiko | M-iClean HL AirConcept/WWHR | Haubenspülmaschine 1 Korb, 500x650mm | Haube | 0,024 |
+| 590 | Meiko | M-iClean HXL WWHR | Haubenspülmaschine 2 Körbe | Haube | 0,024 |
+| 383 | Meiko | M-iClean US ComfortAir | Untertischspülmaschinen, 400x400 mm Korb (Gläser) | Untertisch | 0,022 |
+| 386 | Winterhalter | UC-S Energy | Untertischspülmaschinen, 400x400 mm Korb (Gläser) | Untertisch | 0,023 |
+
+Auffällig: Alle 8 nicht-konformen Modelle stammen aus den Kategorien „1 Korb,
+500x650mm", „2 Körbe" oder „400x400 mm Korb (Gläser)" — also den grösseren
+bzw. auf Gläser spezialisierten Varianten. Das bestätigt noch einmal den
+Punkt aus Abschnitt „Nur zwei Gerätekategorien": die EU-Klassierung selbst
+kennt diese Unterkategorien nicht (nur Haube/Untertisch), aber die
+tatsächlichen SPEC-Werte hängen in der Praxis sichtbar mit Korbgrösse/
+Spezialisierung zusammen — genau das, was die Pro-Platte-Normierung
+eigentlich ausgleichen soll, hier aber bei den grösseren/Glas-Varianten nicht
+ausreicht, um unter den fixen Grenzwert zu kommen.
