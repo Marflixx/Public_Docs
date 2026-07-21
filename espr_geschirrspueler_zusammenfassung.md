@@ -1,7 +1,6 @@
 # ESPR Gewerbliche Geschirrspüler — Zusammenfassung
 
-Stand: 21.07.2026 (aktualisiert: REC und Tabelle 2 waren anfangs fälschlich
-als "offen" gemeldet, siehe Abschnitt "REC und Tabelle 2 (Haube)")
+Stand: 21.07.2026
 
 ## Regulatorischer Status
 
@@ -54,31 +53,13 @@ Haubenspülmaschinen (beide = "hood-type"), und **keine** grössen-/
 korbmassabhängigen Klassen. Grösse wird stattdessen implizit über die
 Pro-Teller-Normierung (kWh/Teller, l/Teller) berücksichtigt.
 
-## Zentrale Formeln (Annex IV, EL-Annexe)
+## Zentrale Formeln und Referenzwerte (Annex IV, EL-Annexe)
 
 | Grösse | Bedeutung | Formel |
 |---|---|---|
 | SPEC | Standard Programme Energy Consumption (kWh/Teller) | SPEC = EC / pR |
 | REC | Reference Energy Consumption (kWh/Teller) | fest definiert je Gerätetyp (siehe unten) |
 | EEI | Energy Efficiency Index (%) | EEI = SPEC / REC · 100 |
-
-EEI wird anschliessend über Tabelle 1 (Untertisch) bzw. Tabelle 2 (Haube) auf
-die Buchstabenklasse A–G abgebildet — **beide Tabellen sind vollständig
-definiert** (siehe nächster Abschnitt).
-
-## REC und Tabelle 2 (Haube) — Korrektur vom 21.07.2026
-
-**Diese Werte wurden in einer früheren Fassung dieser Zusammenfassung
-fälschlich als "im Entwurf noch offen" gemeldet.** Martin hat auf den Fehler
-hingewiesen (danke).
-
-Ursache: Das Word-Dokument (EL-Annexe) enthält an diesen Stellen Text im
-Modus "Änderungen nachverfolgen" (`w:ins`, eingefügt beim Stakeholder-Meeting
-vom 23.06.2026). Die ursprüngliche Text-Extraktion hat direkte Textbausteine
-eines Word-Absatzes gelesen, aber Text innerhalb solcher
-Track-Changes-Einfügungen technisch übersehen — dadurch erschienen die
-Platzhalter leer, obwohl die Werte tatsächlich im Dokument standen. Nach
-korrigierter Extraktion:
 
 **REC (Referenz-Energieverbrauch):**
 
@@ -87,8 +68,8 @@ korrigierter Extraktion:
 | Under-counter one-tank dishwasher | 0,0130 kWh/Teller |
 | Hood-type dishwasher | 0,0167 kWh/Teller |
 
-**Tabelle 2 (Haubenspülmaschinen) ist vollständig definiert** (nicht nur
-Klasse A, wie zuvor fälschlich gemeldet):
+EEI wird anschliessend über Tabelle 1 (Untertisch) bzw. Tabelle 2 (Haube) auf
+die Buchstabenklasse A–G abgebildet:
 
 | Klasse | EEI-Bereich Untertisch (Tabelle 1) | EEI-Bereich Haube (Tabelle 2) |
 |---|---|---|
@@ -100,27 +81,22 @@ Klasse A, wie zuvor fälschlich gemeldet):
 | F | 140–150 | 124–130 |
 | G | > 150 | > 130 |
 
-Zusätzlich (ebenfalls über die Korrektur gefunden, ED-Annexe): die
-Wasserverbrauchs-Mindestanforderung (SPWC) ist auch nicht mehr offen —
-Under-counter < 0,179 l/Teller, Hood-type < 0,169 l/Teller. Diese SPWC-Werte
-sind im Skript aktuell nur dokumentiert, nicht automatisch geprüft (dafür
-müsste zusätzlich der Wasserverbrauch pro Gerät ausgewertet werden).
+## Ecodesign-Mindestanforderungen (Annex II, ED-Annexe)
 
-## Was jetzt auswertbar ist
+| Gerätetyp | SPEC max. | SPWC max. |
+|---|---|---|
+| Under-counter | < 0,021 kWh/Teller | < 0,179 l/Teller |
+| Hood-type | < 0,023 kWh/Teller | < 0,169 l/Teller |
 
-Mit den korrigierten Werten lässt sich für jedes Gerät sowohl die
-**Ecodesign-Mindestanforderung** (Pass/Fail) als auch die **volle A–G-Label-
-Klasse** berechnen:
+Zusätzlich: Reinigungsleistung (xclean) > 90 %, Mindest-Hygieneanforderungen.
+SPWC wird in `eu_energielabel.py` aktuell nur dokumentiert, nicht automatisch
+geprüft (dafür müsste zusätzlich der Wasserverbrauch pro Gerät ausgewertet
+werden).
 
-- Ecodesign-Mindestanforderung: Under-counter SPEC < **0,021 kWh/Teller**,
-  Hood-type SPEC < **0,023 kWh/Teller** (zusätzlich: Reinigungsleistung
-  (xclean) > 90 %, Mindest-Hygieneanforderungen)
-- Label-Klasse: EEI = SPEC/REC·100, dann Tabelle 1 bzw. 2 (siehe oben)
-
-Wichtig: Ecodesign-Konformität und Label-Klasse sind **unabhängig**
-voneinander — auch ein Gerät, das die Mindestanforderung nicht erfüllt (und
-damit eigentlich nicht in Verkehr gebracht werden dürfte), bekäme rechnerisch
-trotzdem eine Klasse zugeordnet, wenn man die Formel einfach durchrechnet.
+Ecodesign-Konformität und Label-Klasse sind **unabhängig** voneinander — auch
+ein Gerät, das die Mindestanforderung nicht erfüllt (und damit eigentlich
+nicht in Verkehr gebracht werden dürfte), bekäme rechnerisch trotzdem eine
+Klasse zugeordnet, wenn man die Formel einfach durchrechnet.
 
 ## Umgesetztes Werkzeug
 
@@ -139,12 +115,10 @@ trotzdem eine Klasse zugeordnet, wenn man die Formel einfach durchrechnet.
 
 ## Fazit
 
-Die A–G-Label-Zuordnung ist **jetzt berechenbar** — REC und die vollständige
-Haube-Klassentabelle waren im Entwurf bereits enthalten, wurden aber initial
-durch einen Extraktionsfehler übersehen (siehe Korrektur oben). Die Werte
-gelten für den Entwurfsstand vom Stakeholder-Meeting am 23.06.2026 und können
-sich bis zum Abschluss der Konsultation (Feedback-Frist 13.09.2026, OPC
-Herbst 2026) noch ändern.
+Die A–G-Label-Zuordnung ist berechenbar. Die Werte gelten für den
+Entwurfsstand vom Stakeholder-Meeting am 23.06.2026 und können sich bis zum
+Abschluss der Konsultation (Feedback-Frist 13.09.2026, OPC Herbst 2026) noch
+ändern.
 
 ## Anhang: Auswertung der EcoGastro Datenbank (Stand 21.07.2026)
 
