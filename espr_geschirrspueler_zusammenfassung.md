@@ -139,12 +139,18 @@ ausgewertet:
 | 383 | Meiko | M-iClean US ComfortAir | Untertischspülmaschinen, 400x400 mm Korb (Gläser) | Untertisch | 0,022 |
 | 386 | Winterhalter | UC-S Energy | Untertischspülmaschinen, 400x400 mm Korb (Gläser) | Untertisch | 0,023 |
 
-Auffällig: Alle 8 nicht-konformen Modelle stammen aus den Kategorien „1 Korb,
-500x650mm", „2 Körbe" oder „400x400 mm Korb (Gläser)" — also den grösseren
-bzw. auf Gläser spezialisierten Varianten. Das bestätigt noch einmal den
+Auffällig: 7 der 8 nicht-konformen Modelle stammen aus den Kategorien „1 Korb,
+500x650mm" (4x), „2 Körbe" (1x) oder „400x400 mm Korb (Gläser)" (2x) — also
+den grösseren bzw. auf Gläser spezialisierten Varianten. Das bestätigt den
 Punkt aus Abschnitt „Nur zwei Gerätekategorien": die EU-Klassierung selbst
 kennt diese Unterkategorien nicht (nur Haube/Untertisch), aber die
 tatsächlichen SPEC-Werte hängen in der Praxis sichtbar mit Korbgrösse/
 Spezialisierung zusammen — genau das, was die Pro-Teller-Normierung
 eigentlich ausgleichen soll, hier aber bei den grösseren/Glas-Varianten nicht
 ausreicht, um unter den fixen Grenzwert zu kommen.
+
+Die achte Ausnahme (ID 416, Gehrig Group GTW 3700) ist dagegen eine reguläre
+„1 Korb, 500x500mm"-Kategorie — derselben Kategorie, in der die meisten
+konformen Modelle liegen. Mit SPEC = 0,023 kWh/Teller liegt sie genau auf dem
+Grenzwert (Ecodesign-Anforderung: SPEC muss strikt darunter liegen) und ist
+damit ein Grenzfall, kein Grössen-/Kategorieeffekt.
