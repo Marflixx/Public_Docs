@@ -51,14 +51,14 @@ Die Verordnung unterscheidet ausschliesslich:
 Es gibt **keine** separate EU-Kategorie für Durchschub- vs. einfache
 Haubenspülmaschinen (beide = "hood-type"), und **keine** grössen-/
 korbmassabhängigen Klassen. Grösse wird stattdessen implizit über die
-Pro-Platte-Normierung (kWh/Platte, l/Platte) berücksichtigt.
+Pro-Teller-Normierung (kWh/Teller, l/Teller) berücksichtigt.
 
 ## Zentrale Formeln (Annex IV, EL-Annexe)
 
 | Grösse | Bedeutung | Formel |
 |---|---|---|
-| SPEC | Standard Programme Energy Consumption (kWh/Platte) | SPEC = EC / pR |
-| REC | Reference Energy Consumption (kWh/Platte) | von der EU festzulegender Referenzwert je Gerätetyp |
+| SPEC | Standard Programme Energy Consumption (kWh/Teller) | SPEC = EC / pR |
+| REC | Reference Energy Consumption (kWh/Teller) | von der EU festzulegender Referenzwert je Gerätetyp |
 | EEI | Energy Efficiency Index (%) | EEI = SPEC / REC · 100 |
 
 EEI wird anschliessend über Tabelle 1 (Untertisch, vollständig definiert) bzw.
@@ -83,8 +83,8 @@ Vermutung, kein Fakt.
 Die **Ecodesign-Mindestanforderung** ist im Entwurf bereits fix und
 unabhängig von REC/EEI:
 
-- Under-counter: SPEC < **0,021 kWh/Platte**
-- Hood-type: SPEC < **0,023 kWh/Platte**
+- Under-counter: SPEC < **0,021 kWh/Teller**
+- Hood-type: SPEC < **0,023 kWh/Teller**
 
 Zusätzlich: Reinigungsleistung (xclean) > 90 %, sowie Mindest-Hygieneanforderungen
 (Bioindikator-Reduktionsraten).
@@ -94,7 +94,7 @@ Zusätzlich: Reinigungsleistung (xclean) > 90 %, sowie Mindest-Hygieneanforderun
 `eu_energielabel.py` (im Repo `Marflixx/egs-eartheffect`, Commit `9ee1df1`,
 Doku in `docs/konzept_eu_energielabel.md`):
 
-- Liest read-only Geschirrspüler-Geräte aus der EGS-DB (`device` ⨝
+- Liest read-only Geschirrspüler-Geräte aus der EcoGastro Datenbank (`device` ⨝
   `device_listing` ⨝ `measure_category`), erkennt Gerätetyp über den
   Kategorienamen ("haube" → hood_type, "untertisch" → under_counter)
 - Prüft Ecodesign-Konformität (SPEC-Grenzwert) — funktioniert bereits heute
@@ -112,7 +112,7 @@ final feststeht, ist das Skript direkt einsatzbereit — nur `REC_VALUES` in
 `eu_energielabel.py` muss dann aktualisiert werden. Bis dahin ist nur die
 Ecodesign-Pass/Fail-Prüfung (Mindestanforderung) belastbar auswertbar.
 
-## Anhang: Auswertung der EGS-Gerätedatenbank (Stand 21.07.2026)
+## Anhang: Auswertung der EcoGastro Datenbank (Stand 21.07.2026)
 
 Read-only-Abfrage der Produktions-DB (`device` ⨝ `device_listing` ⨝
 `measure_category`, Feld `energieverbrauch_pro_teller` = SPEC) gegen die
@@ -145,6 +145,6 @@ bzw. auf Gläser spezialisierten Varianten. Das bestätigt noch einmal den
 Punkt aus Abschnitt „Nur zwei Gerätekategorien": die EU-Klassierung selbst
 kennt diese Unterkategorien nicht (nur Haube/Untertisch), aber die
 tatsächlichen SPEC-Werte hängen in der Praxis sichtbar mit Korbgrösse/
-Spezialisierung zusammen — genau das, was die Pro-Platte-Normierung
+Spezialisierung zusammen — genau das, was die Pro-Teller-Normierung
 eigentlich ausgleichen soll, hier aber bei den grösseren/Glas-Varianten nicht
 ausreicht, um unter den fixen Grenzwert zu kommen.
