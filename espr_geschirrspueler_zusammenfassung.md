@@ -176,9 +176,7 @@ die meisten Modelle verteilen sich auf C bis F, auch wenn sie die
 Ecodesign-Mindestanforderung locker erfüllen. Das liegt daran, dass REC
 (0,0130 / 0,0167 kWh/Teller) deutlich unter den meisten in der Datenbank
 vorkommenden SPEC-Werten liegt — REC scheint eher ambitionierte
-Referenz-/Zielwerte statt Marktdurchschnitte abzubilden. Auf Wunsch kann ich
-die vollständige Geräte-für-Geräte-Tabelle (alle 95, mit EEI und Klasse) als
-Anhang oder Spreadsheet nachliefern.
+Referenz-/Zielwerte statt Marktdurchschnitte abzubilden. Vollständige Geräteliste mit Klasse siehe Tabelle unten.
 
 ### Modelle, die die Ecodesign-Mindestanforderung NICHT erfüllen
 
@@ -205,3 +203,105 @@ eine reguläre „1 Korb, 500x500mm"-Kategorie, in der die meisten konformen
 Modelle liegen; mit SPEC = 0,023 kWh/Teller liegt sie genau auf dem
 Ecodesign-Grenzwert und ist damit primär ein Grenzfall, kein
 Grössen-/Kategorieeffekt.
+
+### Vollständige Geräteliste mit EU-Label-Klasse (alle 95 Modelle)
+
+Sortiert nach Typ, Klasse, Hersteller, Modell.
+
+| ID | Hersteller | Modell | Typ | SPEC (kWh/Teller) | EEI | Klasse | Ecodesign-konform |
+|---|---|---|---|---|---|---|---|
+| 581 | Ackermann | H540 Klima Plus | Haube | 0,015 | 89,8 | A | ja |
+| 410 | Ackermann | H540E Klima Plus | Haube | 0,015 | 89,8 | A | ja |
+| 583 | Bartscher | DS1002 | Haube | 0,014 | 83,8 | A | ja |
+| 582 | Bartscher | DS1002-NRG | Haube | 0,012 | 71,9 | A | ja |
+| 584 | Colged | Toptech38-23D NRG | Haube | 0,014 | 83,8 | A | ja |
+| 443 | Krupps | CH150 | Haube | 0,016 | 95,8 | A | ja |
+| 408 | Ackermann | H640 Klima Plus | Haube | 0,017 | 101,8 | B | ja |
+| 430 | Krupps | CH100 | Haube | 0,017 | 101,8 | B | ja |
+| 422 | Hobart | AMX-10C + SEF-25/048 | Haube | 0,018 | 107,8 | C | ja |
+| 424 | Hobart | AMX-10C + SEF-25/048 + SEF-25/045 | Haube | 0,018 | 107,8 | C | ja |
+| 719 | Hobart | AMXS-10C + SEF-25/049 | Haube | 0,018 | 107,8 | C | ja |
+| 718 | Hobart | AMXS-10C + SEF-25/049 + SEF-25/045 | Haube | 0,018 | 107,8 | C | ja |
+| 458 | Hobart | AMXT-10C + SEF-25/054 | Haube | 0,018 | 107,8 | C | ja |
+| 460 | Hobart | AMXT-10C + SEF-25/054 + SEF-25/047 | Haube | 0,018 | 107,8 | C | ja |
+| 461 | Hobart | AUPT-10C + SEF-25/047 + SEF-25/054 | Haube | 0,018 | 107,8 | C | ja |
+| 431 | Krupps | CH110 | Haube | 0,018 | 107,8 | C | ja |
+| 407 | Ackermann | H540 | Haube | 0,019 | 113,8 | D | ja |
+| 423 | Hobart | AMX-10C | Haube | 0,019 | 113,8 | D | ja |
+| 421 | Hobart | AMX-10C + SEF-25/045 | Haube | 0,019 | 113,8 | D | ja |
+| 721 | Hobart | AMXS-10C | Haube | 0,019 | 113,8 | D | ja |
+| 425 | Hobart | AMXX-10C + SEF-25/050 | Haube | 0,019 | 113,8 | D | ja |
+| 427 | Hobart | AMXX-10C + SEF-25/050 + SEF-25/045 | Haube | 0,019 | 113,8 | D | ja |
+| 723 | Hobart | AMXXS-10C + SEF-25/051 | Haube | 0,019 | 113,8 | D | ja |
+| 426 | Hobart | AUP-10C + SEF-25/050 | Haube | 0,019 | 113,8 | D | ja |
+| 428 | Hobart | AUP-10C + SEF-25/050 + SEF-25/045 | Haube | 0,019 | 113,8 | D | ja |
+| 434 | Meiko | UPster H 500 AirConcept | Haube | 0,019 | 113,8 | D | ja |
+| 406 | Ackermann | H640 | Haube | 0,020 | 119,8 | E | ja |
+| 459 | Hobart | AMXT-10C | Haube | 0,020 | 119,8 | E | ja |
+| 722 | Hobart | AMXT-10C + SEF-25/044 | Haube | 0,020 | 119,8 | E | ja |
+| 457 | Hobart | AMXT-10C + SEF-25/047 | Haube | 0,020 | 119,8 | E | ja |
+| 446 | Hobart | AMXXL-10C + SEF-25/052 | Haube | 0,020 | 119,8 | E | ja |
+| 447 | Hobart | AMXXL-10C + SEF-25/052 + SEF-25/046 | Haube | 0,020 | 119,8 | E | ja |
+| 725 | Hobart | AUPL-10C + SEF-25/043 + SEF-25/046 + SEF-25/052 | Haube | 0,020 | 119,8 | E | ja |
+| 449 | Hobart | AUPL-10C + SEF-25/046 + SEF-25/052 | Haube | 0,020 | 119,8 | E | ja |
+| 451 | Hobart | AUPL-10C + SEF-25/052 | Haube | 0,020 | 119,8 | E | ja |
+| 759 | Hobart | AUPT-10C | Haube | 0,020 | 119,8 | E | ja |
+| 462 | Hobart | AUPT-10C + SEF-25/044 | Haube | 0,020 | 119,8 | E | ja |
+| 760 | Hobart | AUPT-10C + SEF-25/047 | Haube | 0,020 | 119,8 | E | ja |
+| 726 | Hobart | AUPT-10C + SEF-25/047 + SEF-25/044 | Haube | 0,020 | 119,8 | E | ja |
+| 463 | Hobart | AUPT-10C + SEF-25/054 | Haube | 0,020 | 119,8 | E | ja |
+| 436 | Meiko | M-iClean HM AirConcept | Haube | 0,020 | 119,8 | E | ja |
+| 752 | Winterhalter | PT-L | Haube | 0,020 | 119,8 | E | ja |
+| 441 | Winterhalter | PT-M | Haube | 0,020 | 119,8 | E | ja |
+| 750 | Winterhalter | PT-XL | Haube | 0,020 | 119,8 | E | ja |
+| 445 | Hobart | AMXXL-10C | Haube | 0,021 | 125,7 | F | ja |
+| 444 | Hobart | AMXXL-10C + SEF-25/046 | Haube | 0,021 | 125,7 | F | ja |
+| 724 | Hobart | AMXXLS-10C | Haube | 0,021 | 125,7 | F | ja |
+| 761 | Hobart | AUPL-10C | Haube | 0,021 | 125,7 | F | ja |
+| 450 | Hobart | AUPL-10C + SEF-25/046 | Haube | 0,021 | 125,7 | F | ja |
+| 448 | Hobart | AUPLS-10C | Haube | 0,021 | 125,7 | F | ja |
+| 417 | Hobart | Eco-H604-12B | Haube | 0,021 | 125,7 | F | ja |
+| 429 | Krupps | CH110-BT | Haube | 0,021 | 125,7 | F | ja |
+| 432 | Krupps | EL60E | Haube | 0,021 | 125,7 | F | ja |
+| 433 | Krupps | EL60TH | Haube | 0,021 | 125,7 | F | ja |
+| 437 | Meiko | M-iClean HM AirConcept/WWHR | Haube | 0,021 | 125,7 | F | ja |
+| 435 | Meiko | M-iClean HM WWHR | Haube | 0,021 | 125,7 | F | ja |
+| 467 | Meiko | M-iClean HXL AirConcept/WWHR | Haube | 0,021 | 125,7 | F | ja |
+| 753 | Winterhalter | PT-L EnergyPlus | Haube | 0,021 | 125,7 | F | ja |
+| 440 | Winterhalter | PT-M EnergyPlus | Haube | 0,021 | 125,7 | F | ja |
+| 754 | Winterhalter | PT-XL EnergyPlus | Haube | 0,021 | 125,7 | F | ja |
+| 416 | Gehrig Group | GTW 3700 | Haube | 0,023 | 137,7 | G | nein |
+| 465 | Gehrig Group | GTW 5700 | Haube | 0,022 | 131,7 | G | ja |
+| 452 | Meiko | M-iClean HL | Haube | 0,027 | 161,7 | G | nein |
+| 454 | Meiko | M-iClean HL AirConcept | Haube | 0,026 | 155,7 | G | nein |
+| 455 | Meiko | M-iClean HL AirConcept/WWHR | Haube | 0,024 | 143,7 | G | nein |
+| 453 | Meiko | M-iClean HL WWHR | Haube | 0,026 | 155,7 | G | nein |
+| 466 | Meiko | M-iClean HXL AirConcept | Haube | 0,022 | 131,7 | G | ja |
+| 590 | Meiko | M-iClean HXL WWHR | Haube | 0,024 | 143,7 | G | nein |
+| 388 | Bartscher | TF-517 | Untertisch | 0,013 | 100,0 | A | ja |
+| 580 | Ackermann | U 540 | Untertisch | 0,015 | 115,4 | C | ja |
+| 397 | Meiko | M-iClean UM+ ComfortAir | Untertisch | 0,015 | 115,4 | C | ja |
+| 568 | Bartscher | TopClean 44 | Untertisch | 0,016 | 123,1 | D | ja |
+| 732 | Hobart | CareS-10C | Untertisch | 0,016 | 123,1 | D | ja |
+| 391 | Hobart | FP-10C | Untertisch | 0,016 | 123,1 | D | ja |
+| 731 | Hobart | FPLS-10C | Untertisch | 0,016 | 123,1 | D | ja |
+| 733 | Hobart | FPS-10C | Untertisch | 0,016 | 123,1 | D | ja |
+| 572 | Hobart | FX-10C | Untertisch | 0,016 | 123,1 | D | ja |
+| 735 | Hobart | FXL-10C | Untertisch | 0,016 | 123,1 | D | ja |
+| 734 | Hobart | FXLS-10C | Untertisch | 0,016 | 123,1 | D | ja |
+| 736 | Hobart | FXS-10C | Untertisch | 0,016 | 123,1 | D | ja |
+| 396 | Meiko | M-iClean UM ComfortAir | Untertisch | 0,016 | 123,1 | D | ja |
+| 755 | Winterhalter | UC-L | Untertisch | 0,016 | 123,1 | D | ja |
+| 401 | Winterhalter | UC-M | Untertisch | 0,016 | 123,1 | D | ja |
+| 751 | Winterhalter | UC-XL | Untertisch | 0,016 | 123,1 | D | ja |
+| 728 | Hobart | Eco+F515-11C | Untertisch | 0,017 | 130,8 | E | ja |
+| 574 | Hobart | Eco+F515-11D | Untertisch | 0,017 | 130,8 | E | ja |
+| 727 | Hobart | Eco+F515S-11C | Untertisch | 0,017 | 130,8 | E | ja |
+| 729 | Hobart | Eco+F515S-11D | Untertisch | 0,017 | 130,8 | E | ja |
+| 405 | Meiko | M-iClean UL ComfortAir | Untertisch | 0,018 | 138,5 | E | ja |
+| 757 | Winterhalter | UC-L Energy | Untertisch | 0,017 | 130,8 | E | ja |
+| 756 | Winterhalter | UC-M Energy | Untertisch | 0,017 | 130,8 | E | ja |
+| 402 | Winterhalter | UC-XL Energy | Untertisch | 0,017 | 130,8 | E | ja |
+| 390 | Gehrig Group | GTW 3300 | Untertisch | 0,020 | 153,8 | G | ja |
+| 383 | Meiko | M-iClean US ComfortAir | Untertisch | 0,022 | 169,2 | G | nein |
+| 386 | Winterhalter | UC-S Energy | Untertisch | 0,023 | 176,9 | G | nein |
